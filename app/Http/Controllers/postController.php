@@ -7,6 +7,9 @@ use App\Models\post;
 
 class postController extends Controller
 {
+    // public function generateVerificationToken(){
+    //     return rand();
+    // }
     
     public function index()
     {
@@ -28,7 +31,7 @@ class postController extends Controller
         'password'=>request('password'),
         'admin'=>request('admin'),
         'verification'=>request('verification'),
-        'verificationToken'=>request('verificationToken')
+        'verificationToken'=>rand().rand().rand()
         ]);
     }
 
@@ -46,7 +49,7 @@ class postController extends Controller
         'password'=>request('password'),
         'admin'=>request('admin'),
         'verification'=>request('verification'),
-        'verificationToken'=>request('verificationToken')
+        'verificationToken'=>rand().rand().rand(),
 
         ]);
         return [
@@ -62,4 +65,5 @@ class postController extends Controller
             "success" =>$success
         ];
     }
+    
 }

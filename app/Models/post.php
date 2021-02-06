@@ -29,8 +29,6 @@ class post extends Model
     {
         return $this->verified=post::admin;
     }
-    public static function generateVerificationToken(){
-        return rand();
-    }
+    
 }
 

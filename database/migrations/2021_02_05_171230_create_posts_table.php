@@ -29,7 +29,7 @@ class CreatePostsTable extends Migration
             $table->string('password');
             $table->string('admin')->default("false")->nullable();
             $table->string('verification')->default(post::notVerified)->nullable();
-            $table->string([post::class, 'generateVerificationToken']);
+            $table->string('verificationToken')->nullable();
             $table->timestamps();
 
         });
