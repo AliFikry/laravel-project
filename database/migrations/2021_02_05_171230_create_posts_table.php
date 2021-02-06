@@ -5,8 +5,13 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\post;
 
+
 class CreatePostsTable extends Migration
 {
+    public  static function generateVerificationToken()
+    {
+        return rand();
+    }
     /**
      * Run the migrations.
      *
@@ -24,10 +29,11 @@ class CreatePostsTable extends Migration
             $table->string('password');
             $table->string('admin')->default("false")->nullable();
             $table->string('verification')->default(post::notVerified)->nullable();
-            $table->string(post::generateVerificationToken());
+            $table->string([post::class, 'generateVerificationToken']);
             $table->timestamps();
 
         });
+        
     }
 
     /**
@@ -39,4 +45,5 @@ class CreatePostsTable extends Migration
     {
         Schema::dropIfExists('posts');
     }
+    
 }
