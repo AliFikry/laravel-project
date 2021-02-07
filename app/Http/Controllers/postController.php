@@ -10,6 +10,7 @@ class postController extends Controller
     // public function generateVerificationToken(){
     //     return rand();
     // }
+  
     
     public function index()
     {
@@ -31,7 +32,7 @@ class postController extends Controller
         'password'=>request('password'),
         'admin'=>request('admin'),
         'verification'=>request('verification'),
-        'verificationToken'=>rand().rand().rand()
+        'verificationToken'=>sha1(time()),
         ]);
     }
 
@@ -49,7 +50,7 @@ class postController extends Controller
         'password'=>request('password'),
         'admin'=>request('admin'),
         'verification'=>request('verification'),
-        'verificationToken'=>rand().rand().rand(),
+        'verificationToken'=>sha1(time()),
 
         ]);
         return [

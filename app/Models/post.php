@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class post extends Model
 {
     use HasFactory;
-    const admin = 'true';
-    const notAdmin = 'false';
-    const verified ='true';
-    const notVerified='false';
+
     protected $fillable = [
         'name',
         'email',
@@ -21,14 +18,16 @@ class post extends Model
         'verificationToken'
 
     ];
-    public function isAdmin()
-    {
-        return $this->admin=post::admin;
-    }
-    public function isVerified()
-    {
-        return $this->verified=post::admin;
-    }
-    
-}
+    protected $admin = [
+        'admin' => 0,
+    ];
+    // public function isAdmin()
+    // {
+    //     return $this->admin=post::admin;
+    // }
+    // public function isVerified()
+    // {
+    //     return $this->verified=post::admin;
+    // }
 
+}
